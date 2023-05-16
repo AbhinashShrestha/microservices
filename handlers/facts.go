@@ -5,8 +5,11 @@ import  (
 	"github.com/AbhinashShrestha/rest_api/database"
 	"github.com/gofiber/fiber/v2"
 )
-func Home(c *fiber.Ctx) error {
-	return c.SendString("Jumping in the wild <:3 !")
+func ListFacts(c *fiber.Ctx) error {
+	facts := []models.Fact{}
+	database.DB.Db.Find(&facts)
+
+	return c.Status(200).JSON(facts)
 }
 
 func CreateFact(c *fiber.Ctx) error{
