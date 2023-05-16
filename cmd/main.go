@@ -1,9 +1,9 @@
 package main
 
-import {
+import (
     "github.com/gofiber/fiber/v2"
     "github.com/AbhinashShrestha/rest_api/database"
-}
+)
 
 func main() {
     database.ConnectDb()
